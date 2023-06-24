@@ -73,6 +73,19 @@
           cols="30"
           rows="5"
         ></textarea>
+        <input type="text" name="address" id="address" autofocus="true" autocomplete="on" placeholder="What do you have planned?" />
+        <input type="password" name="password" id="password" placeholder="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-az-Z).{8,}$" />
+        <input type="file" name="file" id="file" placeholder="upload image" accept="image/*" />
+        <input type="file" name="capture" id="capture" capture  placeholder="What do you have planned?" />
+        <input type="file" name="file" id="multiple" multiple accept="image/*" />
+        <input type="text" name="trekking" id="trekking" value="trekking" />
+        <input type="text" name="language" id="requred" required  />
+        <input type="text" name="email" id="requred" required  disabled />
+        <input type="password" name="max-lent-min-lent" id="max-lent-min-lent"  
+        maxlength="8" minlength="2"
+        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-az-Z).{8,}$" />
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

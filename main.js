@@ -103,3 +103,100 @@ let formValidations = () => {
     msgs.innerHTML = "";
   }
 }; */
+
+
+/* 
+
+function generatePrimes(quota) {
+
+  function isPrime(n) {
+    for (let c = 2; c <= Math.sqrt(n); ++c) {
+      console.log(c+"      "+n)
+
+      if (n % c === 0) {
+          return false;
+       }
+    }
+    return true;
+
+  }
+
+  const primes = [];
+  const maximum = 1000000;
+
+  while (primes.length < quota) {
+    const candidate = Math.floor(Math.random() * (maximum + 1));
+    if (isPrime(candidate)) {
+      primes.push(candidate);
+    }
+  }
+
+  return primes;
+}
+
+document.querySelector('#generate').addEventListener('click', () => {
+  const quota = document.querySelector('#quota').value;
+  const primes = generatePrimes(quota);
+  document.querySelector('#output').textContent = `Finished generating ${quota} primes!`;
+});
+
+document.querySelector('#reload').addEventListener('click', () => {
+  document.location.reload()
+});
+ */
+
+
+
+
+const fetchPromise = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+
+fetchPromise.then( response => {
+  const jsonPromise = response.json();
+  jsonPromise.then( json => {
+    console.log(" HELOO "+json[0].name);
+  });
+});
+
+const fetchPromiseS = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+
+fetchPromiseS
+  .then( response => {
+    return response.json();
+  })
+  .then( json => {
+    console.log(json[1].name);
+  });
+
+  
+
+
+
+
+
+  const fetchPromise11 = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+const fetchPromise21 = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/not-found');
+const fetchPromise31 = fetch('bad-scheme://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json');
+
+Promise.all([fetchPromise11, fetchPromise21, fetchPromise31])
+  .then( responses => {
+    for (const response of responses) {
+      console.log(`${response.url}: ${response.status}`);
+    }
+  })
+  .catch( error => {
+    console.error(`Failed to fetch: ${error}`)
+  });
+
+
+  const fetchPromise1 = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+  const fetchPromise2 = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/not-found');
+  const fetchPromise3 = fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json');
+  
+  Promise.any([fetchPromise1, fetchPromise2, fetchPromise3])
+    .then( response => {
+      console.log(`${response.url}: ${response.status}`);
+    })
+    .catch( error => {
+      console.error(`Failed to fetch: ${error}`)
+    });
+  
